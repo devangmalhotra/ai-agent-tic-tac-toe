@@ -6,7 +6,9 @@ function GameSettings() {
     <div id='form-container'>
         <form id='game-form' action="">
             <label htmlFor="algo-type">Select Algorithm Type:</label>
-            <input type="text" />
+            <select name="algo-type" id="">
+                
+            </select>
         </form>
     </div>
   )
