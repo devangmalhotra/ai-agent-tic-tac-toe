@@ -7,8 +7,11 @@ function GameSettings() {
         <form id='game-form' action="">
             <label htmlFor="algo-type">Select Algorithm Type:</label>
             <select name="algo-type" id="">
-                
+                <option value="minimax">MiniMax</option>
+                <option value="alphabetapruning">Alpha-Beta Pruning</option>
+                <option value="expectiminimax">ExpectiMiniMax</option>
             </select>
+            <input type="submit" />
         </form>
     </div>
   )
