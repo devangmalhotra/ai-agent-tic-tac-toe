@@ -4,8 +4,26 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Title from './Components/Title/Title'
 import GameSettings from './Components/GameSettings/GameSettings'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import GamePage from './Pages/GamePage/GamePage'
 
 function App() {
+
+  return (
+    <div>
+      <Router>
+        <Routes>
+          <Route index element={<GamePage />} />
+        </Routes>
+      </Router>
+    </div>
+    
+  )
+}
+
+export default App
+
+/* function App() {
 
   return (
     <div>
@@ -16,7 +34,7 @@ function App() {
   )
 }
 
-export default App
+export default App */
 /* function App() {
   const [count, setCount] = useState(0)
 
