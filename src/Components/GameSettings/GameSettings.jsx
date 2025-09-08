@@ -4,7 +4,7 @@ import './GameSettings.css'
 function GameSettings() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("test");
+    console.log(e.target[0].value);
   }
 
   return (
