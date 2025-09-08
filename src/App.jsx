@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import GamePage from './Pages/GamePage/GamePage'
+import MainSelection from './Pages/MainSelection/MainSelection';
 
 function App() {
 
@@ -11,7 +11,7 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route index element={<GamePage />} />
+          <Route index element={<MainSelection />} />
         </Routes>
       </Router>
     </div>
