@@ -1,10 +1,15 @@
 import React from 'react'
 import './GameSettings.css'
+import { useNavigate } from 'react-router-dom'
 
 function GameSettings() {
+  let navigate = useNavigate();
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e.target[0].value);
+    const algoType = e.target[0].value;
+    navigate(`/game?algo-type=${algoType}`)
   }
 
   return (
