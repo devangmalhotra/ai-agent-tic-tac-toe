@@ -1,9 +1,10 @@
 import React from 'react'
+import Title from '../../Components/Title/Title'
 
 function GamePage() {
   return (
     <div>
-      test
+      <Title />
     </div>
   )
 }
