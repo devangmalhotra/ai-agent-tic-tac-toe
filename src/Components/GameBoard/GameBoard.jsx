@@ -3,7 +3,7 @@ import './GameBoard.css'
 
 function GameBoard() {
   return (
-    <div>GameBoard</div>
+    <div id='gameboard-container'></div>
   )
 }
 
