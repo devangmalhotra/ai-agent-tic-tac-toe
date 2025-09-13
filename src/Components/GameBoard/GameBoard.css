@@ -4,3 +4,15 @@
     background-color: red;
     border-radius: 5%;
 }
+
+.gameboard-cell {
+    background-color: white;
+    height: 100px;
+    width: 100px;
+    display: grid;
+}
+
+.gameboard-cell:hover {
+    background-color: grey;
+    cursor: pointer;
+}
