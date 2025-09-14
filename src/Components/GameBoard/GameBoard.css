@@ -3,13 +3,16 @@
     width: 500px;
     background-color: red;
     border-radius: 5%;
+    display: grid;
+    grid-template-columns: 60px 60px 60px;
+    grid-template-rows: 60px 60px 60px;
+    gap: 50px;
 }
 
 .gameboard-cell {
     background-color: white;
     height: 100px;
     width: 100px;
-    display: grid;
 }
 
 .gameboard-cell:hover {
