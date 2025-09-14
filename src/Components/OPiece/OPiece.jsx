@@ -3,7 +3,7 @@ import './OPiece.css'
 
 function OPiece() {
   return (
-    <div>OPiece</div>
+    <div id='opiece-main'>OPiece</div>
   )
 }
 
