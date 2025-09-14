@@ -1,5 +1,4 @@
 #gameboard-container {
-    background-color: red;
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
@@ -7,12 +6,15 @@
 }
 
 .gameboard-cell {
-    background-color: white;
+    background-color: grey;
     height: 100px;
     width: 100px;
+    opacity: 50%;
+    transition-duration: 0.2s;
 }
 
 .gameboard-cell:hover {
-    background-color: grey;
+    background-color: white;
     cursor: pointer;
+    transition-duration: 0.2s;
 }
