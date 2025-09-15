@@ -8,7 +8,7 @@ function GameBoard() {
    const  [turn, setTurn] = useState(1); //1 for player, 2 for AI
    
    const handleTurnChange = (currTurn) => {
-    
+        
    }
 
   return (
