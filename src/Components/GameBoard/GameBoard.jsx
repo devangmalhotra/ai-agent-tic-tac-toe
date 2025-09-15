@@ -7,12 +7,13 @@ import { useState } from 'react'
 function GameBoard() {
    const  [turn, setTurn] = useState(1); //1 for player, 2 for AI
    
-   const handleTurnChange = (currTurn) => {
+   const handleTurnChange = () => {
         if(turn === 1) {
             setTurn(2);
         } else {
             setTurn(1);
         }
+        console.log(turn);
    };
 
   return (
