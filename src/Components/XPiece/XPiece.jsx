@@ -3,7 +3,7 @@ import './XPiece.css'
 
 function XPiece() {
   return (
-    <div id='xpiece-main'>XPiece</div>
+    <div id='xpiece-main'>&#x2715;</div>
   )
 }
 
