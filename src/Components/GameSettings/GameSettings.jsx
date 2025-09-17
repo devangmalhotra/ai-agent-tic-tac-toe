@@ -21,7 +21,7 @@ function GameSettings() {
                 <option value="alphabetapruning">Alpha-Beta Pruning</option>
                 <option value="expectiminimax">ExpectiMiniMax</option>
             </select>
-            <input type="submit" id='game-form-submit'/>
+            <input type="submit" id='game-form-submit' value='Submit'/>
         </form>
     </div>
   )
