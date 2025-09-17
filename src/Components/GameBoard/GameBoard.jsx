@@ -19,14 +19,10 @@ function GameBoard() {
   return (
     <div id='gameboard-container'>
         <div id='1-1' className='gameboard-cell' onClick={handleTurnChange}>
-            <XPiece />
+            <XPiece className="hidden" />
         </div>
-        <div id='1-2' className='gameboard-cell' onClick={handleTurnChange}>
-            <OPiece />
-        </div>
-        <div id='1-3' className='gameboard-cell' onClick={handleTurnChange}>
-            <OPiece />
-        </div>
+        <div id='1-2' className='gameboard-cell' onClick={handleTurnChange}></div>
+        <div id='1-3' className='gameboard-cell' onClick={handleTurnChange}></div>
         <div id='2-1' className='gameboard-cell' onClick={handleTurnChange}></div>
         <div id='2-2' className='gameboard-cell' onClick={handleTurnChange}></div>
         <div id='2-3' className='gameboard-cell' onClick={handleTurnChange}></div>

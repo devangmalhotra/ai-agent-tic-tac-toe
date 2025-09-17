@@ -1,9 +1,9 @@
 import React from 'react'
 import './XPiece.css'
 
-function XPiece() {
+function XPiece(props) {
   return (
-    <div id='xpiece-main'>&#x2715;</div>
+    <div id='xpiece-main' className={props.className}>&#x2715;</div>
   )
 }
 
