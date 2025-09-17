@@ -1,9 +1,9 @@
 import React from 'react'
 import './OPiece.css'
 
-function OPiece() {
+function OPiece(props) {
   return (
-    <div id='opiece-main'>O</div>
+    <div id='opiece-main' className={props.className}>O</div>
   )
 }
 

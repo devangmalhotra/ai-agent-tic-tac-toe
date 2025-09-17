@@ -20,6 +20,7 @@ function GameBoard() {
     <div id='gameboard-container'>
         <div id='1-1' className='gameboard-cell' onClick={handleTurnChange}>
             <XPiece className="hidden" />
+            <OPiece className="hidden"/>
         </div>
         <div id='1-2' className='gameboard-cell' onClick={handleTurnChange}></div>
         <div id='1-3' className='gameboard-cell' onClick={handleTurnChange}></div>
