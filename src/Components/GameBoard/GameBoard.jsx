@@ -14,47 +14,48 @@ function GameBoard() {
             setTurn(1);
         }
         console.log(turn);
-   };
+   }
 
-   const handleClickOnCell = () => {
-
+   const handleClickOnCell = (cellIndex) => {
+        console.log(`Clicked on cell ${cellIndex}`)
+        handleTurnChange();
    }
 
   return (
     <div id='gameboard-container'>
-        <div id='1-1' className='gameboard-cell' onClick={handleClickOnCell}>
+        <div id='1-1' className='gameboard-cell' onClick={() => handleClickOnCell(0)}>
             <XPiece className="hidden" />
             <OPiece className="hidden"/>
         </div>
-        <div id='1-2' className='gameboard-cell' onClick={handleClickOnCell}>
+        <div id='1-2' className='gameboard-cell' onClick={() => handleClickOnCell(1)}>
             <XPiece className="hidden" />
             <OPiece className="hidden"/>
         </div>
-        <div id='1-3' className='gameboard-cell' onClick={handleClickOnCell}>
+        <div id='1-3' className='gameboard-cell' onClick={() => handleClickOnCell(2)}>
             <XPiece className="hidden" />
             <OPiece className="hidden"/>
         </div>
-        <div id='2-1' className='gameboard-cell' onClick={handleClickOnCell}>
+        <div id='2-1' className='gameboard-cell' onClick={() => handleClickOnCell(3)}>
             <XPiece className="hidden" />
             <OPiece className="hidden"/>
         </div>
-        <div id='2-2' className='gameboard-cell' onClick={handleClickOnCell}>
+        <div id='2-2' className='gameboard-cell' onClick={() => handleClickOnCell(4)}>
             <XPiece className="hidden" />
             <OPiece className="hidden"/>
         </div>
-        <div id='2-3' className='gameboard-cell' onClick={handleClickOnCell}>
+        <div id='2-3' className='gameboard-cell' onClick={() => handleClickOnCell(5)}>
             <XPiece className="hidden" />
             <OPiece className="hidden"/>
         </div>
-        <div id='3-1' className='gameboard-cell' onClick={handleClickOnCell}>
+        <div id='3-1' className='gameboard-cell' onClick={() => handleClickOnCell(6)}>
             <XPiece className="hidden" />
             <OPiece className="hidden"/>
         </div>
-        <div id='3-2' className='gameboard-cell' onClick={handleClickOnCell}>
+        <div id='3-2' className='gameboard-cell' onClick={() => handleClickOnCell(7)}>
             <XPiece className="hidden" />
             <OPiece className="hidden"/>
         </div>
-        <div id='3-3' className='gameboard-cell' onClick={handleClickOnCell}>
+        <div id='3-3' className='gameboard-cell' onClick={() => handleClickOnCell(8)}>
             <XPiece className="hidden" />
             <OPiece className="hidden"/>
         </div>
