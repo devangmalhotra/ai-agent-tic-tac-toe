@@ -5,7 +5,10 @@ import OPiece from '../OPiece/OPiece'
 import { useState } from 'react'
 
 function GameBoard() {
-   const  [turn, setTurn] = useState(1); //1 for player, 2 for AI
+   const [turn, setTurn] = useState(1); //1 for player, 2 for AI
+   const [arrBoard, setArrBoard] = useState([   0, 0, 0,
+                                                0, 0, 0,
+                                                0, 0, 0 ]); // arr for board, will be used internally
    
    const handleTurnChange = () => {
         if(turn === 1) {
@@ -18,6 +21,7 @@ function GameBoard() {
 
    const handleClickOnCell = (cellIndex) => {
         console.log(`Clicked on cell ${cellIndex}`)
+        setArrBoard()
         handleTurnChange();
    }
 
