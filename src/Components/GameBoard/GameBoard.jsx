@@ -5,6 +5,7 @@ import OPiece from '../OPiece/OPiece'
 import { useState } from 'react'
 
 function GameBoard() {
+    const BOARDSIZE = 9; // 3x3 
    const [turn, setTurn] = useState(1); //1 for player, 2 for AI
    const [arrBoard, setArrBoard] = useState([   0, 0, 0,
                                                 0, 0, 0,
