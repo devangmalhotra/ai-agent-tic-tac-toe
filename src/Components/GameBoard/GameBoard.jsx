@@ -16,12 +16,19 @@ function GameBoard() {
         } else {
             setTurn(1);
         }
-        console.log(turn);
+        //console.log(turn);
    }
 
    const handleClickOnCell = (cellIndex) => {
         console.log(`Clicked on cell ${cellIndex}`)
-        setArrBoard()
+        setArrBoard(arrBoard.map((item, index) => {
+            if(index == cellIndex) {
+                return turn;
+            } else {
+                return 0;
+            }
+        }))
+        console.log(arrBoard);
         handleTurnChange();
    }
 
