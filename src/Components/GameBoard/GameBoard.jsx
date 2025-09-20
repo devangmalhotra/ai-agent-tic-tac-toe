@@ -23,28 +23,32 @@ function GameBoard() {
 
     const handleClickOnCell = (cellIndex) => {
         console.log(`Clicked on cell ${cellIndex}`)
+         console.log(frontendBoardCells)
 
         // updating arr board
-        setArrBoard(arrBoard.map((item, index) => {
+        const newArrBoard = arrBoard.map((item, index) => {
             if(index == cellIndex) {
                 return turn;
             } else {
                 return 0;
             }
-        }))
+        })
+
+        setArrBoard(newArrBoard);
         console.log(arrBoard);
 
+        console.log(frontendBoardCells)
         // updating frontend board
         const newFrontendBoard = frontendBoardCells.map(item => {
             if (item.id == cellIndex) {
                 console.log("test")
-                return <div id={item.id} key={item.id} className='gameboard-cell' onClick={() => handleClickOnCell(item.id)}>test</div>
+                return [<div id={item.id} key={item.id} className='gameboard-cell' onClick={() => handleClickOnCell(item.id)}>test</div>]
             } else {
-                return console.log(item);
+               return [<div id={item.id} key={item.id} className='gameboard-cell' onClick={() => handleClickOnCell(item.id)}>test</div>]
             }
-        });
+        }); 
         
-        console.log(frontendBoardCells);
+        //console.log(frontendBoardCells);
 
         // re-render with new frontend board
         setFrontendBoardCells(newFrontendBoard);
@@ -55,13 +59,12 @@ function GameBoard() {
    // Creating initial board
    const [frontendBoardCells, setFrontendBoardCells] = useState([]);
    useEffect(() => {
-    if (frontendBoardCells.length == 0) {
-        for (let i = 0; i < BOARDSIZE; i++) {
-            setFrontendBoardCells(prevArr => [...prevArr, <div id={i} key={i} className='gameboard-cell' onClick={() => handleClickOnCell(i)}></div>])
+        if (frontendBoardCells.length == 0) {
+            for (let i = 0; i < BOARDSIZE; i++) {
+                setFrontendBoardCells(prevArr => [...prevArr, <div id={i} key={i} className='gameboard-cell' onClick={() => handleClickOnCell(i)}></div>])
+            }
         }
-        console.log(frontendBoardCells)
-        }
-   }, [])
+    }, [])
 
 
    
