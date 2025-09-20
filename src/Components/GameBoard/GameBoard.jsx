@@ -43,8 +43,9 @@ function GameBoard() {
                 return console.log(item);
             }
         });
-
-        setFrontendBoardCells([newFrontendBoard]);
+        
+        // re-render with new sh
+        setFrontendBoardCells(newFrontendBoard);
 
         handleTurnChange();
    }
@@ -52,10 +53,12 @@ function GameBoard() {
    // Creating initial board
    const [frontendBoardCells, setFrontendBoardCells] = useState([]);
    useEffect(() => {
-    for (let i = 0; i < BOARDSIZE; i++) {
-        setFrontendBoardCells(prevArr => [...prevArr, <div id={i} key={i} className='gameboard-cell' onClick={() => handleClickOnCell(0)}></div>])
-    }
-    console.log(frontendBoardCells)
+    if (frontendBoardCells.length == 0) {
+        for (let i = 0; i < BOARDSIZE; i++) {
+            setFrontendBoardCells(prevArr => [...prevArr, <div id={i} key={i} className='gameboard-cell' onClick={() => handleClickOnCell(0)}></div>])
+        }
+        console.log(frontendBoardCells)
+        }
    }, [])
 
 
