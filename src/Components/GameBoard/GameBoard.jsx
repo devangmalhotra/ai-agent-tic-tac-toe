@@ -23,6 +23,8 @@ function GameBoard() {
 
     const handleClickOnCell = (cellIndex) => {
         console.log(`Clicked on cell ${cellIndex}`)
+
+        // updating arr board
         setArrBoard(arrBoard.map((item, index) => {
             if(index == cellIndex) {
                 return turn;
@@ -31,6 +33,19 @@ function GameBoard() {
             }
         }))
         console.log(arrBoard);
+
+        // updating frontend board
+        const newFrontendBoard = frontendBoardCells.map((item, index) => {
+            if (item.id == cellIndex) {
+                console.log("test")
+                return <div id={i} key={i} className='gameboard-cell' onClick={() => handleClickOnCell(0)}>test</div>
+            } else {
+                return console.log(item);
+            }
+        });
+
+        setFrontendBoardCells([newFrontendBoard]);
+
         handleTurnChange();
    }
 
