@@ -35,16 +35,18 @@ function GameBoard() {
         console.log(arrBoard);
 
         // updating frontend board
-        const newFrontendBoard = frontendBoardCells.map((item, index) => {
+        const newFrontendBoard = frontendBoardCells.map(item => {
             if (item.id == cellIndex) {
                 console.log("test")
-                return <div id={i} key={i} className='gameboard-cell' onClick={() => handleClickOnCell(0)}>test</div>
+                return <div id={item.id} key={item.id} className='gameboard-cell' onClick={() => handleClickOnCell(item.id)}>test</div>
             } else {
                 return console.log(item);
             }
         });
         
-        // re-render with new sh
+        console.log(frontendBoardCells);
+
+        // re-render with new frontend board
         setFrontendBoardCells(newFrontendBoard);
 
         handleTurnChange();
@@ -55,7 +57,7 @@ function GameBoard() {
    useEffect(() => {
     if (frontendBoardCells.length == 0) {
         for (let i = 0; i < BOARDSIZE; i++) {
-            setFrontendBoardCells(prevArr => [...prevArr, <div id={i} key={i} className='gameboard-cell' onClick={() => handleClickOnCell(0)}></div>])
+            setFrontendBoardCells(prevArr => [...prevArr, <div id={i} key={i} className='gameboard-cell' onClick={() => handleClickOnCell(i)}></div>])
         }
         console.log(frontendBoardCells)
         }
