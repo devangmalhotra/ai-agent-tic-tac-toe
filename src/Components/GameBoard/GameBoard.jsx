@@ -11,7 +11,6 @@ function GameBoard() {
     const [arrBoard, setArrBoard] = useState([   0, 0, 0,
                                                 0, 0, 0,
                                                 0, 0, 0 ]); // arr for board, will be used internally
-    const [frontendBoardCells, setFrontendBoardCells] = useState([]);
    
     const handleTurnChange = () => {
         if(turn === 1) {
