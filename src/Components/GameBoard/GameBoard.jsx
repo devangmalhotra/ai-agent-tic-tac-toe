@@ -11,6 +11,7 @@ function GameBoard() {
     const [arrBoard, setArrBoard] = useState([   0, 0, 0,
                                                 0, 0, 0,
                                                 0, 0, 0 ]); // arr for board, will be used internally
+    const [frontendBoardCells, setFrontendBoardCells] = useState([]);
    
     const handleTurnChange = () => {
         if(turn === 1) {
@@ -23,55 +24,35 @@ function GameBoard() {
 
     const handleClickOnCell = (cellIndex) => {
         console.log(`Clicked on cell ${cellIndex}`)
-         console.log(frontendBoardCells)
+        console.log(arrBoard)
 
         // updating arr board
-        const newArrBoard = arrBoard.map((item, index) => {
-            if(index == cellIndex) {
-                return turn;
-            } else {
-                return 0;
-            }
-        })
+        if(arrBoard[cellIndex] != 0) { // don't update if taken
+            alert("This cell is occupied. Choose another.")
+            return;
+        }
+        
+        const newArrBoard = [...arrBoard];
+        newArrBoard[cellIndex] = turn;
 
         setArrBoard(newArrBoard);
-        console.log(arrBoard);
-
-        console.log(frontendBoardCells)
-        // updating frontend board
-        const newFrontendBoard = frontendBoardCells.map(item => {
-            if (item.id == cellIndex) {
-                console.log("test")
-                return [<div id={item.id} key={item.id} className='gameboard-cell' onClick={() => handleClickOnCell(item.id)}>test</div>]
-            } else {
-               return [<div id={item.id} key={item.id} className='gameboard-cell' onClick={() => handleClickOnCell(item.id)}>test</div>]
-            }
-        }); 
-        
-        //console.log(frontendBoardCells);
-
-        // re-render with new frontend board
-        setFrontendBoardCells(newFrontendBoard);
+        console.log(newArrBoard);
 
         handleTurnChange();
    }
 
-   // Creating initial board
-   const [frontendBoardCells, setFrontendBoardCells] = useState([]);
-   useEffect(() => {
-        if (frontendBoardCells.length == 0) {
-            for (let i = 0; i < BOARDSIZE; i++) {
-                setFrontendBoardCells(prevArr => [...prevArr, <div id={i} key={i} className='gameboard-cell' onClick={() => handleClickOnCell(i)}></div>])
-            }
-        }
-    }, [])
+    const renderCells = () => {
+        const frontendBoard = arrBoard.map((item, index) => {
+            return (<div id={index} key={index} className='gameboard-cell' onClick={() => handleClickOnCell(index)}></div>)
+        })
 
-
+        return frontendBoard;
+   }
    
 
   return (
     <div id='gameboard-container'>
-        {frontendBoardCells}
+        {renderCells()}
     </div>
   )
 }
