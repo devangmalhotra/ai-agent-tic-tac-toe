@@ -8,9 +8,7 @@ import { useEffect } from 'react'
 function GameBoard() {
     const BOARDSIZE = 9; // 3x3 
     const [turn, setTurn] = useState(1); //1 for player, 2 for AI
-    const [arrBoard, setArrBoard] = useState([   0, 0, 0,
-                                                0, 0, 0,
-                                                0, 0, 0 ]); // arr for board, will be used internally
+    const [arrBoard, setArrBoard] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0 ]); // arr for board, will be used internally
    
     const handleTurnChange = () => {
         if(turn === 1) {
