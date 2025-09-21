@@ -43,7 +43,9 @@ function GameBoard() {
 
     const renderCells = () => {
         const frontendBoard = arrBoard.map((item, index) => {
-            return (<div id={index} key={index} className='gameboard-cell' onClick={() => handleClickOnCell(index)}></div>)
+            return (<div id={index} key={index} className='gameboard-cell' onClick={() => handleClickOnCell(index)}>
+                {item === 1 ? <XPiece /> : item === 2 ? <OPiece /> : null}
+            </div>)
         })
 
         return frontendBoard;
