@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 function GameBoard() {
     const BOARDSIZE = 9; // 3x3 
     const [turn, setTurn] = useState(1); //1 for player, 2 for AI
-    const [arrBoard, setArrBoard] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0 ]); // arr for board, will be used internally
+    const [arrBoard, setArrBoard] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0]]); // arr for board, will be used internally
    
     const handleTurnChange = () => {
         if(turn === 1) {
@@ -19,18 +19,18 @@ function GameBoard() {
         //console.log(turn);
    }
 
-    const handleClickOnCell = (cellIndex) => {
-        console.log(`Clicked on cell ${cellIndex}`)
-        console.log(arrBoard)
+    const handleClickOnCell = (cellRow, cellCol) => {
+        console.log(`Clicked on cell ${cellRow}, ${cellCol}`)
+        //console.log(arrBoard)
 
         // updating arr board
-        if(arrBoard[cellIndex] != 0) { // don't update if taken
+        if(arrBoard[cellRow][cellCol] != 0) { // don't update if taken
             alert("This cell is occupied. Choose another.")
             return;
         }
         
         const newArrBoard = [...arrBoard];
-        newArrBoard[cellIndex] = turn;
+        arrBoard[cellRow][cellCol] = turn;
 
         setArrBoard(newArrBoard);
         console.log(newArrBoard);
@@ -38,13 +38,15 @@ function GameBoard() {
         handleTurnChange();
    }
 
+   let flattened_index = 0; // counter
     const renderCells = () => {
-        const frontendBoard = arrBoard.map((item, index) => {
-            return (<div id={index} key={index} className='gameboard-cell' onClick={() => handleClickOnCell(index)}>
-                {item === 1 ? <XPiece /> : item === 2 ? <OPiece /> : null}
+        const frontendBoard = arrBoard.map((row, i) => {
+            return row.map((col, a) => {
+                return(<div id={flattened_index++} key={a} className='gameboard-cell' onClick={() => handleClickOnCell(i, a)}>
+                {col === 1 ? <XPiece /> : col === 2 ? <OPiece /> : null}
             </div>)
+            })
         })
-
         return frontendBoard;
    }
    
