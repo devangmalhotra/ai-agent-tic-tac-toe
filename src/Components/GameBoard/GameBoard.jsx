@@ -19,7 +19,7 @@ function GameBoard() {
         //console.log(turn);
    }
 
-    const handleClickOnCell = (cellRow, cellCol) => {
+    const handleClickOnCell = async (cellRow, cellCol) => {
         console.log(`Clicked on cell ${cellRow}, ${cellCol}`)
         //console.log(arrBoard)
 
@@ -34,6 +34,13 @@ function GameBoard() {
 
         setArrBoard(newArrBoard);
         console.log(newArrBoard);
+
+        try {
+            const response = await fetch('http://localhost:3000/checkwin');
+            console.log(response)
+        } catch (e) {
+            console.log(`Error fetching: ${e}`)
+        }
 
         handleTurnChange();
    }
