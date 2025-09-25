@@ -36,8 +36,11 @@ function GameBoard() {
         console.log(newArrBoard);
 
         try {
-            const response = await fetch('http://localhost:3000/checkwin');
-            console.log(response)
+            const response = await fetch('http://localhost:3000/checkwin')
+            .then(response => response.json())
+            .then(data => {
+            console.log(data.data); // The fetched data
+      })
         } catch (e) {
             console.log(`Error fetching: ${e}`)
         }
