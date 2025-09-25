@@ -33,10 +33,10 @@ function GameBoard() {
         arrBoard[cellRow][cellCol] = turn;
 
         setArrBoard(newArrBoard);
-        console.log(newArrBoard);
+        //console.log(newArrBoard);
 
         try {
-            const response = await fetch('http://localhost:3000/checkwin')
+            const response = await fetch('http://localhost:3000/checkwin', {method: 'POST', body: JSON.stringify(arrBoard)})
             .then(response => response.json())
             .then(data => {
             console.log(data.data); // The fetched data
