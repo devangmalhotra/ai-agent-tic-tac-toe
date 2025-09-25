@@ -3,7 +3,9 @@ import './ClearBtn.css'
 
 function ClearBtn() {
   return (
-    <div>ClearBtn</div>
+    <div>
+        <button id='clear-btn'>Reset</button>
+    </div>
   )
 }
 
