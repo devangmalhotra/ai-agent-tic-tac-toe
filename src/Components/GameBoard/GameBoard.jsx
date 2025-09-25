@@ -39,7 +39,7 @@ function GameBoard() {
             const response = await fetch('http://localhost:3000/checkwin', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
             .then(response => response.json())
             .then(data => {
-            console.log(data.data); // The fetched data
+            console.log(`Game won: ${data.data}`); // The fetched data
       })
         } catch (e) {
             console.log(`Error fetching: ${e}`)
