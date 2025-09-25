@@ -4,6 +4,7 @@ import XPiece from '../XPiece/XPiece'
 import OPiece from '../OPiece/OPiece'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import ClearBtn from '../ClearBtn/ClearBtn'
 
 function GameBoard() {
     const BOARDSIZE = 9; // 3x3 
@@ -62,8 +63,11 @@ function GameBoard() {
    
 
   return (
-    <div id='gameboard-container'>
-        {renderCells()}
+    <div>
+        <ClearBtn />
+        <div id='gameboard-container'>
+            {renderCells()}
+        </div>
     </div>
   )
 }
