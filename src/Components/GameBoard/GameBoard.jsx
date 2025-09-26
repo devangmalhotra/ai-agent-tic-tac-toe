@@ -41,19 +41,24 @@ function GameBoard() {
             .then(response => response.json())
             .then(data => {
             console.log(`Game won: ${data.data}`); // The fetched data
+            if (data.data) {
+                alert(`Game over. Player ${turn} wins.`);
+                handleClear();
+            } else {
+                handleTurnChange();
+            }
       })
         } catch (e) {
             console.log(`Error fetching: ${e}`)
         }
 
-        handleTurnChange();
    }
 
    const handleClear = () => {
-    console.log('test');
     const originalArr = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
     setArrBoard(originalArr);
     setTurn(1);
+    console.log("Game has been reset.")
    }
 
    let flattened_index = 0; // counter
