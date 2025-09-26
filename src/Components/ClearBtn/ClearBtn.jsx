@@ -1,14 +1,14 @@
 import React from 'react'
 import './ClearBtn.css'
 
-function ClearBtn() {
+function ClearBtn(props) {
     const handleClickReset = () => {
-        
+
     }
 
   return (
     <div>
-        <button id='clear-btn' onClick={handleClickReset}>Reset</button>
+        <button id='clear-btn' onClick={props.clearFunc}>Reset</button>
     </div>
   )
 }

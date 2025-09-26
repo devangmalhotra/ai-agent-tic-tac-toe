@@ -49,6 +49,10 @@ function GameBoard() {
         handleTurnChange();
    }
 
+   const handleClear = () => {
+    console.log('test')
+   }
+
    let flattened_index = 0; // counter
     const renderCells = () => {
         const frontendBoard = arrBoard.map((row, i) => {
@@ -64,7 +68,7 @@ function GameBoard() {
 
   return (
     <div>
-        <ClearBtn />
+        <ClearBtn clearFunc={handleClear}/>
         <div id='gameboard-container'>
             {renderCells()}
         </div>
