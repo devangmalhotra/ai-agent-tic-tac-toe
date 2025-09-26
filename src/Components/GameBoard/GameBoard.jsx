@@ -50,7 +50,10 @@ function GameBoard() {
    }
 
    const handleClear = () => {
-    console.log('test')
+    console.log('test');
+    const originalArr = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+    setArrBoard(originalArr);
+    setTurn(1);
    }
 
    let flattened_index = 0; // counter
