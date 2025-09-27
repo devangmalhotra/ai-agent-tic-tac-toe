@@ -5,11 +5,13 @@ import OPiece from '../OPiece/OPiece'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import ClearBtn from '../ClearBtn/ClearBtn'
+import { useNavigate } from 'react-router-dom'
 
 function GameBoard() {
     const BOARDSIZE = 9; // 3x3 
     const [turn, setTurn] = useState(1); //1 for player, 2 for AI
     const [arrBoard, setArrBoard] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0]]); // arr for board, will be used internally
+    const navigate = useNavigate();
    
     const handleTurnChange = () => {
         if(turn === 1) {
@@ -42,8 +44,10 @@ function GameBoard() {
             .then(data => {
             console.log(`Game won: ${data.data}`); // The fetched data
             if (data.data) {
-                alert(`Game over. Player ${turn} wins.`);
+                alert(`Game over. Player ${turn} wins. You will now be brought to the main page.`);
                 handleClear();
+                navigate('/');
+
             } else {
                 handleTurnChange();
             }
