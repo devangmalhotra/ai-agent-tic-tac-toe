@@ -42,8 +42,8 @@ function GameBoard() {
             const response = await fetch('http://localhost:3000/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
             .then(response => response.json())
             .then(data => {
-            console.log(`Game won: ${data.data}`); // The fetched data
-            if (data.data) {
+            console.log(`Game won: ${data.gamewon}`); // The fetched data
+            if (data.gamewon) {
                 alert(`Game over. Player ${turn} wins. You will now be brought to the main page.`);
                 handleClear();
                 navigate('/');
