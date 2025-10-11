@@ -43,11 +43,15 @@ function GameBoard() {
             .then(response => response.json())
             .then(data => {
             console.log(`Game won: ${data.gamewon}`); // The fetched data
+            console.log(`Tie: ${data.gametie}`)
             if (data.gamewon) {
                 alert(`Game over. Player ${turn} wins. You will now be brought to the main page.`);
                 handleClear();
                 navigate('/');
-
+            } else if (data.gametie) {
+                alert('Game over. It was a tie. You will now be brought to the main page.')
+                handleClear();
+                navigate('/');
             } else {
                 handleTurnChange();
             }
