@@ -24,6 +24,8 @@ function GameBoard() {
 
    const handleAITurn = async () => {
         console.log("test")
+        const response = await fetch('http://localhost:3000/handle-ai-turn', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
+        .then(response => response.json())
    }
 
     const handleClickOnCell = async (cellRow, cellCol) => {
