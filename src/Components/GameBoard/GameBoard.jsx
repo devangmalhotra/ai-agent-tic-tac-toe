@@ -22,6 +22,10 @@ function GameBoard() {
         //console.log(turn);
    }
 
+   const handleAITurn = async () => {
+        console.log("test")
+   }
+
     const handleClickOnCell = async (cellRow, cellCol) => {
         console.log(`Clicked on cell ${cellRow}, ${cellCol}`)
         //console.log(arrBoard)
@@ -54,6 +58,7 @@ function GameBoard() {
                 navigate('/');
             } else {
                 handleTurnChange();
+                handleAITurn();
             }
       })
         } catch (e) {
