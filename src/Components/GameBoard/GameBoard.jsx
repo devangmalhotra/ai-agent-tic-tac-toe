@@ -27,9 +27,10 @@ function GameBoard() {
         .then(response => response.json())
         .then(data => {
             const updatedArr = [...arrBoard];
-            updatedArr[data.row][data.col] = turn;
+            updatedArr[data.row][data.col] = 2;
             setArrBoard(updatedArr);
             console.log(`AI Move is row: ${data.row}, col: ${data.col}`);
+            console.log(turn);
         })
 
         try {
@@ -39,13 +40,13 @@ function GameBoard() {
             console.log(`Game won: ${data.gamewon}`); // The fetched data
             console.log(`Tie: ${data.gametie}`)
             if (data.gamewon) {
-                alert(`Game over. Player ${turn} wins. You will now be brought to the main page.`);
-                handleClear();
-                navigate('/');
+                alert(`Game over. AI wins. You will now be brought to the main page.`);
+                //handleClear();
+                //navigate('/');
             } else if (data.gametie) {
                 alert('Game over. It was a tie. You will now be brought to the main page.')
-                handleClear();
-                navigate('/');
+                //handleClear();
+                //navigate('/');
             } else {
                 handleTurnChange();
             }
@@ -67,7 +68,7 @@ function GameBoard() {
         }
         
         const newArrBoard = [...arrBoard];
-        arrBoard[cellRow][cellCol] = turn;
+        newArrBoard[cellRow][cellCol] = 1;
 
         setArrBoard(newArrBoard);
         //console.log(newArrBoard);
@@ -79,13 +80,13 @@ function GameBoard() {
             console.log(`Game won: ${data.gamewon}`); // The fetched data
             console.log(`Tie: ${data.gametie}`)
             if (data.gamewon) {
-                alert(`Game over. Player ${turn} wins. You will now be brought to the main page.`);
-                handleClear();
-                navigate('/');
+                alert(`Game over. Player wins. You will now be brought to the main page.`);
+                //handleClear();
+                //navigate('/');
             } else if (data.gametie) {
                 alert('Game over. It was a tie. You will now be brought to the main page.')
-                handleClear();
-                navigate('/');
+                //handleClear();
+                //navigate('/');
             } else {
                 handleTurnChange();
                 handleAITurn();
