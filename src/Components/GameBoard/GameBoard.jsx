@@ -23,15 +23,37 @@ function GameBoard() {
    }
 
    const handleAITurn = async () => {
-        console.log("test")
         const response = await fetch('http://localhost:3000/handle-ai-turn', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
         .then(response => response.json())
         .then(data => {
             const updatedArr = [...arrBoard];
-            updatedArr[data.row][data.col] = 2;
+            updatedArr[data.row][data.col] = turn;
             setArrBoard(updatedArr);
             console.log(`AI Move is row: ${data.row}, col: ${data.col}`);
         })
+
+        try {
+            const response = await fetch('http://localhost:3000/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
+            .then(response => response.json())
+            .then(data => {
+            console.log(`Game won: ${data.gamewon}`); // The fetched data
+            console.log(`Tie: ${data.gametie}`)
+            if (data.gamewon) {
+                alert(`Game over. Player ${turn} wins. You will now be brought to the main page.`);
+                handleClear();
+                navigate('/');
+            } else if (data.gametie) {
+                alert('Game over. It was a tie. You will now be brought to the main page.')
+                handleClear();
+                navigate('/');
+            } else {
+                handleTurnChange();
+            }
+      })
+        } catch (e) {
+            console.log(`Error fetching: ${e}`)
+        }
+
    }
 
     const handleClickOnCell = async (cellRow, cellCol) => {
