@@ -26,6 +26,12 @@ function GameBoard() {
         console.log("test")
         const response = await fetch('http://localhost:3000/handle-ai-turn', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
         .then(response => response.json())
+        .then(data => {
+            const updatedArr = [...arrBoard];
+            updatedArr[data.row][data.col] = 2;
+            setArrBoard(updatedArr);
+            console.log(`AI Move is row: ${data.row}, col: ${data.col}`);
+        })
    }
 
     const handleClickOnCell = async (cellRow, cellCol) => {
