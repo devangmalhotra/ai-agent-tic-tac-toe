@@ -9,18 +9,8 @@ import { useNavigate } from 'react-router-dom'
 
 function GameBoard() {
     const BOARDSIZE = 9; // 3x3 
-    const [turn, setTurn] = useState(1); //1 for player, 2 for AI
     const [arrBoard, setArrBoard] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0]]); // arr for board, will be used internally
     const navigate = useNavigate();
-   
-    const handleTurnChange = () => {
-        if(turn === 1) {
-            setTurn(2);
-        } else {
-            setTurn(1);
-        }
-        //console.log(turn);
-   }
 
    const handleAITurn = async () => {
         const response = await fetch('http://localhost:3000/handle-ai-turn', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
@@ -41,12 +31,8 @@ function GameBoard() {
             console.log(`Tie: ${data.gametie}`)
             if (data.gamewon) {
                 alert(`Game over. AI wins. Please click the reset button to play again.`);
-                //handleClear();
-                //navigate('/');
             } else if (data.gametie) {
                 alert('Game over. It was a tie. Please click the reset button to play again.')
-                //handleClear();
-                //navigate('/');
             } else {
                 handleTurnChange();
             }
@@ -81,12 +67,8 @@ function GameBoard() {
             console.log(`Tie: ${data.gametie}`)
             if (data.gamewon) {
                 alert(`Game over. Player wins. Please click the reset button to play again.`);
-                //handleClear();
-                //navigate('/');
             } else if (data.gametie) {
                 alert('Game over. It was a tie. Please click the reset button to play again.')
-                //handleClear();
-                //navigate('/');
             } else {
                 handleTurnChange();
                 handleAITurn();
@@ -101,7 +83,7 @@ function GameBoard() {
    const handleClear = () => {
     const originalArr = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
     setArrBoard(originalArr);
-    setTurn(1);
+    navigate('/');
     console.log("Game has been reset.")
    }
 
