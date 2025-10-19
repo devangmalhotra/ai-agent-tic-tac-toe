@@ -18,3 +18,11 @@
     cursor: pointer;
     transition-duration: 0.2s;
 }
+
+.cell-unclickable {
+    pointer-events: none;
+}
+
+.board-none-cursor {
+    cursor: not-allowed;
+}

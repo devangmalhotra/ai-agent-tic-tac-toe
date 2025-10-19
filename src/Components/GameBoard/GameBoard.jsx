@@ -91,7 +91,7 @@ function GameBoard() {
     const renderCells = () => {
         const frontendBoard = arrBoard.map((row, i) => {
             return row.map((col, a) => {
-                return(<div id={flattened_index++} key={a} className='gameboard-cell' onClick={() => handleClickOnCell(i, a)}>
+                return(<div id={flattened_index++} key={a} className='gameboard-cell cell-unclickable' onClick={() => handleClickOnCell(i, a)}>
                 {col === 1 ? <XPiece /> : col === 2 ? <OPiece /> : null}
             </div>)
             })
@@ -101,7 +101,7 @@ function GameBoard() {
    
 
   return (
-    <div>
+    <div id='main'>
         <ClearBtn clearFunc={handleClear}/>
         <div id='gameboard-container'>
             {renderCells()}
