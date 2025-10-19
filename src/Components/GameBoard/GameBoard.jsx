@@ -40,11 +40,11 @@ function GameBoard() {
             console.log(`Game won: ${data.gamewon}`); // The fetched data
             console.log(`Tie: ${data.gametie}`)
             if (data.gamewon) {
-                alert(`Game over. AI wins. You will now be brought to the main page.`);
+                alert(`Game over. AI wins. Please click the reset button to play again.`);
                 //handleClear();
                 //navigate('/');
             } else if (data.gametie) {
-                alert('Game over. It was a tie. You will now be brought to the main page.')
+                alert('Game over. It was a tie. Please click the reset button to play again.')
                 //handleClear();
                 //navigate('/');
             } else {
@@ -80,11 +80,11 @@ function GameBoard() {
             console.log(`Game won: ${data.gamewon}`); // The fetched data
             console.log(`Tie: ${data.gametie}`)
             if (data.gamewon) {
-                alert(`Game over. Player wins. You will now be brought to the main page.`);
+                alert(`Game over. Player wins. Please click the reset button to play again.`);
                 //handleClear();
                 //navigate('/');
             } else if (data.gametie) {
-                alert('Game over. It was a tie. You will now be brought to the main page.')
+                alert('Game over. It was a tie. Please click the reset button to play again.')
                 //handleClear();
                 //navigate('/');
             } else {
