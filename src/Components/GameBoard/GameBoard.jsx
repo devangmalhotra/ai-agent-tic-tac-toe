@@ -3,7 +3,6 @@ import './GameBoard.css'
 import XPiece from '../XPiece/XPiece'
 import OPiece from '../OPiece/OPiece'
 import { useState } from 'react'
-import { useEffect } from 'react'
 import ClearBtn from '../ClearBtn/ClearBtn'
 import { useNavigate } from 'react-router-dom'
 
