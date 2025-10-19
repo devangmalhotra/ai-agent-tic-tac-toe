@@ -11,6 +11,7 @@ function GameBoard() {
     const BOARDSIZE = 9; // 3x3 
     const [arrBoard, setArrBoard] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0]]); // arr for board, will be used internally
     const navigate = useNavigate();
+    const [boardUnclickable, setBoardUnclickable] = useState(false);
 
    const handleAITurn = async () => {
         const response = await fetch('http://localhost:3000/handle-ai-turn', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
@@ -20,7 +21,6 @@ function GameBoard() {
             updatedArr[data.row][data.col] = 2;
             setArrBoard(updatedArr);
             console.log(`AI Move is row: ${data.row}, col: ${data.col}`);
-            console.log(turn);
         })
 
         try {
@@ -31,10 +31,10 @@ function GameBoard() {
             console.log(`Tie: ${data.gametie}`)
             if (data.gamewon) {
                 alert(`Game over. AI wins. Please click the reset button to play again.`);
+                setBoardUnclickable(true);
             } else if (data.gametie) {
                 alert('Game over. It was a tie. Please click the reset button to play again.')
-            } else {
-                handleTurnChange();
+                setBoardUnclickable(true);
             }
       })
         } catch (e) {
@@ -67,10 +67,11 @@ function GameBoard() {
             console.log(`Tie: ${data.gametie}`)
             if (data.gamewon) {
                 alert(`Game over. Player wins. Please click the reset button to play again.`);
+                setBoardUnclickable(true);
             } else if (data.gametie) {
-                alert('Game over. It was a tie. Please click the reset button to play again.')
+                alert('Game over. It was a tie. Please click the reset button to play again.');
+                setBoardUnclickable(true);
             } else {
-                handleTurnChange();
                 handleAITurn();
             }
       })
@@ -83,6 +84,7 @@ function GameBoard() {
    const handleClear = () => {
     const originalArr = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
     setArrBoard(originalArr);
+    setBoardUnclickable(false);
     navigate('/');
     console.log("Game has been reset.")
    }
@@ -91,7 +93,7 @@ function GameBoard() {
     const renderCells = () => {
         const frontendBoard = arrBoard.map((row, i) => {
             return row.map((col, a) => {
-                return(<div id={flattened_index++} key={a} className='gameboard-cell cell-unclickable' onClick={() => handleClickOnCell(i, a)}>
+                return(<div id={flattened_index++} key={a} className={boardUnclickable ? 'gameboard-cell cell-unclickable' : 'gameboard-cell'} onClick={() => handleClickOnCell(i, a)}>
                 {col === 1 ? <XPiece /> : col === 2 ? <OPiece /> : null}
             </div>)
             })
@@ -103,7 +105,7 @@ function GameBoard() {
   return (
     <div id='main'>
         <ClearBtn clearFunc={handleClear}/>
-        <div id='gameboard-container'>
+        <div id='gameboard-container' className={boardUnclickable ? 'board-none-cursor' : ''}>
             {renderCells()}
         </div>
     </div>
