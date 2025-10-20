@@ -5,15 +5,17 @@ import OPiece from '../OPiece/OPiece'
 import { useState } from 'react'
 import ClearBtn from '../ClearBtn/ClearBtn'
 import { useNavigate } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom';
 
 function GameBoard() {
-    const BOARDSIZE = 9; // 3x3 
+    const [searchParams, setSearchParams] = useSearchParams();
     const [arrBoard, setArrBoard] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0]]); // arr for board, will be used internally
     const navigate = useNavigate();
     const [boardUnclickable, setBoardUnclickable] = useState(false);
+    const algoType = searchParams.get('algo-type');
 
    const handleAITurn = async () => {
-        const response = await fetch('http://localhost:3000/handle-ai-turn', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
+        const response = await fetch(`http://localhost:3000/handle-ai-turn?algo-type=${algoType}`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
         .then(response => response.json())
         .then(data => {
             const updatedArr = [...arrBoard];
