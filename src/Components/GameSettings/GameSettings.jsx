@@ -19,7 +19,7 @@ function GameSettings() {
             <select name="algo-type" id="">
                 <option value="miniMax">MiniMax</option>
                 <option value="alphaBetaPruning" disabled>Alpha-Beta Pruning (Currently Unavailable)</option>
-                <option value="expectiminimax" disabled>ExpectiMiniMax (Currently Unavailable)</option>
+                <option value="expectiMiniMax" disabled>ExpectiMiniMax (Currently Unavailable)</option>
             </select>
             <input type="submit" id='game-form-submit' value='Start'/>
         </form>

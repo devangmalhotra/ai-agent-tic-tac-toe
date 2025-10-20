@@ -4,7 +4,15 @@ import { useSearchParams } from 'react-router-dom';
 
 function Title() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const algoType = searchParams.get('algo-type');
+  let algoType;
+
+  if (searchParams.get('algo-type') == 'miniMax') {
+    algoType = 'Minimax'
+  } else if (searchParams.get('algo-type') == 'alphaBetaPruning') {
+    algoType = 'Alpha-beta Pruning'
+  } else if (searchParams.get('algo-type') == 'expectiMiniMax') {
+    algoType = 'Expectiminimax'
+  }
 
   return (
     <div id='title-container'>
