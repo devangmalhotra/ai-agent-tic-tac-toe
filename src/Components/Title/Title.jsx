@@ -9,7 +9,7 @@ function Title() {
   return (
     <div id='title-container'>
         <h1>Tic-Tac-Toe</h1>
-        <h4>AI Algorithm: {algoType}</h4>
+        <h4 className={algoType === null ? 'hidden' : ''}>A.I. Algorithm: {algoType}</h4>
     </div>
   )
 }
