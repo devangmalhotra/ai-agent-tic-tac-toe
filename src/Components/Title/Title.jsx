@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 
 function Title() {
   const [searchParams, setSearchParams] = useSearchParams();
-  let algoType;
+  let algoType = null;
 
   if (searchParams.get('algo-type') == 'miniMax') {
     algoType = 'Minimax'
