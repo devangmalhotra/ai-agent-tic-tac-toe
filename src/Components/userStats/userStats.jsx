@@ -11,12 +11,15 @@ function UserStats() {
         } else {
             setStatsMenuOpened(false);
         }
-        console.log(statsMenuOpened)
     }
 
   return (
     <div id='stats-container'>
         <button id='stats-button' onClick={handleStatsButtonClick}>Game Stats <span className={statsMenuOpened ? 'stats-menu-opened' : ''}id='arrow-collapse-icon'>▶</span></button>
+        <div id='stats-box' className={statsMenuOpened ? '' : 'stats-menu-hidden'}>
+            <h4>Highest streak of all time: </h4>
+            <h4>Your streak: </h4>
+        </div>
     </div>
   )
 }
