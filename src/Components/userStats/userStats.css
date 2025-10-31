@@ -29,3 +29,7 @@
 .stats-menu-hidden {
     display: none;
 }
+
+.statNum {
+    font-weight: 700;
+}
