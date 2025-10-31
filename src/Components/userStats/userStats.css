@@ -9,5 +9,6 @@
 }
 
 #arrow-collapse-icon {
+    display: inline-block;
     transform: rotate(90deg);
 }
