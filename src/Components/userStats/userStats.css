@@ -12,3 +12,7 @@
     display: inline-block;
     transform: rotate(90deg);
 }
+
+.stats-menu-opened {
+    transform: rotate(270deg) !important;
+}
