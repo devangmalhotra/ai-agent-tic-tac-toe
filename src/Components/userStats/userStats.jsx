@@ -1,10 +1,12 @@
 import React from 'react'
 import './UserStats.css'
 import { useState } from 'react'
+import { useEffect } from 'react';
 
 function UserStats(props) {
     const [statsMenuOpened, setStatsMenuOpened] = useState(false);
     const [statsObj, setStatsObj] = useState({ playerCurrStreak: 0, playerHighestStreak: 0, globalStreak: 0 });
+    const [userId, setUserId] = useState(null);
 
     const handleStatsButtonClick = () => {
         if (!statsMenuOpened) {
@@ -24,6 +26,14 @@ function UserStats(props) {
 
         return userId;
     }
+
+    useEffect(() => {
+        setUserId(getUserId());
+        console.log(`User UUID: ${localStorage.getItem('userId')}`)
+
+    }, [])
+
+
 
   return (
     <div id='stats-container'>

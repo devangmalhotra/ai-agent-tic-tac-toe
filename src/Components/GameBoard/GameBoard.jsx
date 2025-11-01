@@ -7,7 +7,7 @@ import ClearBtn from '../ClearBtn/ClearBtn'
 import { useNavigate } from 'react-router-dom'
 import { useSearchParams } from 'react-router-dom';
 
-function GameBoard() {
+function GameBoard(props) {
     const [searchParams, setSearchParams] = useSearchParams();
     const [arrBoard, setArrBoard] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0]]); // arr for board, will be used internally
     const navigate = useNavigate();
@@ -27,7 +27,7 @@ function GameBoard() {
         })
 
         try {
-            const response = await fetch('http://localhost:3000/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
+            const response = await fetch('http://localhost:3000/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ board: arrBoard, playerType: "ai" })})
             .then(response => response.json())
             .then(data => {
             console.log(`Game won: ${data.gamewon}`); // The fetched data
@@ -41,7 +41,7 @@ function GameBoard() {
             }
       })
         } catch (e) {
-            console.log(`Error fetching: ${e}`)
+            console.log(`Error fetching: ${e}`);
         }
 
    }
@@ -63,7 +63,7 @@ function GameBoard() {
         //console.log(newArrBoard);
 
         try {
-            const response = await fetch('http://localhost:3000/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
+            const response = await fetch('http://localhost:3000/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ board: arrBoard, playerType: "player" })})
             .then(response => response.json())
             .then(data => {
             console.log(`Game won: ${data.gamewon}`); // The fetched data
