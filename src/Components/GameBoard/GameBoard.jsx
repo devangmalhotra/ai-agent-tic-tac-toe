@@ -13,8 +13,6 @@ function GameBoard(props) {
     const navigate = useNavigate();
     const [boardUnclickable, setBoardUnclickable] = useState(false);
     const algoType = searchParams.get('algo-type');
-    const [wins, setWins] = useState(0);
-    const [losses, setLosses] = useState(0);
 
    const handleAITurn = async () => {
         const response = await fetch(`http://localhost:3000/handle-ai-turn?algo-type=${algoType}`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
@@ -49,6 +47,7 @@ function GameBoard(props) {
     const handleClickOnCell = async (cellRow, cellCol) => {
         console.log(`Clicked on cell ${cellRow}, ${cellCol}`)
         //console.log(arrBoard)
+        console.log(props.userId);
 
         // updating arr board
         if(arrBoard[cellRow][cellCol] != 0) { // don't update if taken
