@@ -8,7 +8,6 @@ function MainSelection() {
   return (
     <div id='title-form-container'>
       <Title />
-      <UserStats />
       <GameSettings />
     </div>
   )

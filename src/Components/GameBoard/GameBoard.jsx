@@ -25,7 +25,7 @@ function GameBoard(props) {
         })
 
         try {
-            const response = await fetch('http://localhost:3000/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ board: arrBoard, playerType: "ai" })})
+            const response = await fetch('http://localhost:3000/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ board: arrBoard, playerType: "ai", userId: null })})
             .then(response => response.json())
             .then(data => {
             console.log(`Game won: ${data.gamewon}`); // The fetched data
@@ -47,7 +47,6 @@ function GameBoard(props) {
     const handleClickOnCell = async (cellRow, cellCol) => {
         console.log(`Clicked on cell ${cellRow}, ${cellCol}`)
         //console.log(arrBoard)
-        console.log(props.userId);
 
         // updating arr board
         if(arrBoard[cellRow][cellCol] != 0) { // don't update if taken
@@ -62,7 +61,8 @@ function GameBoard(props) {
         //console.log(newArrBoard);
 
         try {
-            const response = await fetch('http://localhost:3000/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ board: arrBoard, playerType: "player" })})
+            const curr_stats = await props.getUserStats();
+            const response = await fetch('http://localhost:3000/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ board: arrBoard, playerType: "player", userId: props.userId })})
             .then(response => response.json())
             .then(data => {
             console.log(`Game won: ${data.gamewon}`); // The fetched data
@@ -70,6 +70,8 @@ function GameBoard(props) {
             if (data.gamewon) {
                 alert(`Game over. Player wins. Please click the reset button to play again.`);
                 setBoardUnclickable(true);
+                console.log(curr_stats); // start from here tomorrow
+
             } else if (data.gametie) {
                 alert('Game over. It was a tie. Please click the reset button to play again.');
                 setBoardUnclickable(true);

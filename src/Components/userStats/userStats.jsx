@@ -25,10 +25,26 @@ function UserStats(props) {
         return userId; // userId from userstats -> gamepage -> gameboard -> api
     }
 
+    const setInitialStats = async () => {
+        const data = await props.getUserStats();
+        const newObj = { playerCurrStreak: data.current_streak, playerHighestStreak: data.highest_streak, globalStreak: 0 }
+        setStatsObj(newObj);
+
+        console.log(data);
+    }
+
     useEffect(() => {
         const id = getUserId();
-        props.onDataSend(localStorage.getItem('userId'));
+        
+        try {
+            props.onDataSend(localStorage.getItem('userId'));
+        } catch(e) {
+            console.log("Not on gamepage. Didn't send userID")
+        }
+
         console.log(`User UUID: ${id}`);
+
+        setInitialStats();
 
     }, [])
 
