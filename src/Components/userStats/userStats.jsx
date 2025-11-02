@@ -1,5 +1,5 @@
 import React from 'react'
-import './UserStats.css'
+import './userStats.css'
 import { useState } from 'react'
 import { useEffect } from 'react';
 
