@@ -50,7 +50,7 @@ function UserStats(props) {
 
   return (
     <div id='stats-container'>
-        <button id='stats-button' onClick={handleStatsButtonClick}>Game Stats <span className={statsMenuOpened ? 'stats-menu-opened' : ''}id='arrow-collapse-icon'>▶</span></button>
+        <button id='stats-button' onClick={handleStatsButtonClick}>Player Stats <span className={statsMenuOpened ? 'stats-menu-opened' : ''}id='arrow-collapse-icon'>▶</span></button>
         <div id='stats-box' className={statsMenuOpened ? '' : 'stats-menu-hidden'}>
             <h4>UserID: <span className='statNum'>{localStorage.getItem('userId')}</span></h4>
             <h4>Your current streak: <span className='statNum'>{props.statsObj.playerCurrStreak}</span></h4>
