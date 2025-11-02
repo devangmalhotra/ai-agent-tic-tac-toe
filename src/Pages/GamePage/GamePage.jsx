@@ -28,7 +28,7 @@ function GamePage() {
 
   const setStats = async () => {
       const data = await getUserStats();
-      const newObj = { playerCurrStreak: data.current_streak, playerHighestStreak: data.highest_streak, globalStreak: 0 }
+      const newObj = { playerCurrStreak: data.current_streak, playerHighestStreak: data.highest_streak, globalStreak: data.global_highest_streak }
       setStatsObj(newObj);
 
       console.log(data);
