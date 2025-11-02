@@ -14,13 +14,13 @@ function GamePage() {
   };
 
   const updateUserStats = async (stats) => {
-    const res = await fetch('http://localhost:3000/update-user-stats', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(stats)});
+    const res = await fetch('https://ai-agent-tic-tac-toe-backend.onrender.com/update-user-stats', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(stats)});
     
     await(setStats());
   };
 
   const getUserStats = async () => {
-    const response = await fetch('http://localhost:3000/get-user-stats', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ userId: localStorage.getItem('userId') })})
+    const response = await fetch('https://ai-agent-tic-tac-toe-backend.onrender.com/get-user-stats', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ userId: localStorage.getItem('userId') })})
     const data = await response.json();
 
     return data;

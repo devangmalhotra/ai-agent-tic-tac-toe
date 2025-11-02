@@ -15,7 +15,7 @@ function GameBoard(props) {
     const algoType = searchParams.get('algo-type');
 
    const handleAITurn = async () => {
-        const response = await fetch(`http://localhost:3000/handle-ai-turn?algo-type=${algoType}`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
+        const response = await fetch(`https://ai-agent-tic-tac-toe-backend.onrender.com/handle-ai-turn?algo-type=${algoType}`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(arrBoard)})
         .then(response => response.json())
         .then(data => {
             const updatedArr = [...arrBoard];
@@ -26,7 +26,7 @@ function GameBoard(props) {
 
         try {
             const curr_stats = await props.getUserStats();
-            const response = await fetch('http://localhost:3000/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ board: arrBoard, playerType: "ai", userId: null })})
+            const response = await fetch('https://ai-agent-tic-tac-toe-backend.onrender.com/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ board: arrBoard, playerType: "ai", userId: null })})
             const data = await response.json();
             console.log(`Game won: ${data.gamewon}`); // The fetched data
             console.log(`Tie: ${data.gametie}`)
@@ -66,7 +66,7 @@ function GameBoard(props) {
 
         try {
             const curr_stats = await props.getUserStats();
-            const response = await fetch('http://localhost:3000/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ board: arrBoard, playerType: "player", userId: props.userId })})
+            const response = await fetch('https://ai-agent-tic-tac-toe-backend.onrender.com/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ board: arrBoard, playerType: "player", userId: props.userId })})
             const data = await response.json();
             console.log(`Game won: ${data.gamewon}`); // The fetched data
             console.log(`Tie: ${data.gametie}`)
