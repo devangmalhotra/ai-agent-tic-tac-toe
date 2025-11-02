@@ -25,19 +25,23 @@ function GameBoard(props) {
         })
 
         try {
+            const curr_stats = await props.getUserStats();
             const response = await fetch('http://localhost:3000/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ board: arrBoard, playerType: "ai", userId: null })})
-            .then(response => response.json())
-            .then(data => {
+            const data = await response.json();
             console.log(`Game won: ${data.gamewon}`); // The fetched data
             console.log(`Tie: ${data.gametie}`)
             if (data.gamewon) {
                 alert(`Game over. AI wins. Please click the reset button to play again.`);
                 setBoardUnclickable(true);
+
+                // Resetting player streak since AI won
+                const new_stats = { id: curr_stats.id, current_streak: 0, highest_streak: curr_stats.highest_streak };
+                await props.updateUserStats(new_stats);
+                
             } else if (data.gametie) {
                 alert('Game over. It was a tie. Please click the reset button to play again.')
                 setBoardUnclickable(true);
             }
-      })
         } catch (e) {
             console.log(`Error fetching: ${e}`);
         }
@@ -69,7 +73,7 @@ function GameBoard(props) {
             if (data.gamewon) {
                 alert(`Game over. Player wins. Please click the reset button to play again.`);
                 setBoardUnclickable(true);
-                const new_stats = { id: curr_stats.id, current_streak: ++curr_stats.current_streak, highest_streak: 1};
+                const new_stats = { id: curr_stats.id, current_streak: ++curr_stats.current_streak, highest_streak: (curr_stats.current_streak > curr_stats.highest_streak ? curr_stats.current_streak : curr_stats.highest_streak)};
                 await props.updateUserStats(new_stats);
 
             } else if (data.gametie) {
