@@ -63,14 +63,14 @@ function GameBoard(props) {
         try {
             const curr_stats = await props.getUserStats();
             const response = await fetch('http://localhost:3000/check-win-or-game-over', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ board: arrBoard, playerType: "player", userId: props.userId })})
-            .then(response => response.json())
-            .then(data => {
+            const data = await response.json();
             console.log(`Game won: ${data.gamewon}`); // The fetched data
             console.log(`Tie: ${data.gametie}`)
             if (data.gamewon) {
                 alert(`Game over. Player wins. Please click the reset button to play again.`);
                 setBoardUnclickable(true);
-                console.log(curr_stats); // start from here tomorrow
+                const new_stats = { id: curr_stats.id, current_streak: ++curr_stats.current_streak, highest_streak: 1};
+                await props.updateUserStats(new_stats);
 
             } else if (data.gametie) {
                 alert('Game over. It was a tie. Please click the reset button to play again.');
@@ -78,7 +78,6 @@ function GameBoard(props) {
             } else {
                 handleAITurn();
             }
-      })
         } catch (e) {
             console.log(`Error fetching: ${e}`)
         }

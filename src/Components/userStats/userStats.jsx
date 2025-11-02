@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 
 function UserStats(props) {
     const [statsMenuOpened, setStatsMenuOpened] = useState(false);
-    const [statsObj, setStatsObj] = useState({ playerCurrStreak: 0, playerHighestStreak: 0, globalStreak: 0 });
 
     const handleStatsButtonClick = () => {
         if (!statsMenuOpened) {
@@ -43,8 +42,7 @@ function UserStats(props) {
         }
 
         console.log(`User UUID: ${id}`);
-
-        setInitialStats();
+        props.setStats();
 
     }, [])
 
@@ -55,9 +53,9 @@ function UserStats(props) {
         <button id='stats-button' onClick={handleStatsButtonClick}>Game Stats <span className={statsMenuOpened ? 'stats-menu-opened' : ''}id='arrow-collapse-icon'>▶</span></button>
         <div id='stats-box' className={statsMenuOpened ? '' : 'stats-menu-hidden'}>
             <h4>UserID: <span className='statNum'>{localStorage.getItem('userId')}</span></h4>
-            <h4>Your current streak: <span className='statNum'>{statsObj.playerCurrStreak}</span></h4>
-            <h4>Your highest streak: <span className='statNum'>{statsObj.playerHighestStreak}</span></h4>
-            <h4>Highest streak of all time: <span className='statNum'>{statsObj.globalStreak}</span></h4>
+            <h4>Your current streak: <span className='statNum'>{props.statsObj.playerCurrStreak}</span></h4>
+            <h4>Your highest streak: <span className='statNum'>{props.statsObj.playerHighestStreak}</span></h4>
+            <h4>Highest streak of all time: <span className='statNum'>{props.statsObj.globalStreak}</span></h4>
         </div>
     </div>
   )
