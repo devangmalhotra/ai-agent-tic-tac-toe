@@ -5,3 +5,16 @@
     margin: 20px;
     
 }
+
+.selection-dropdown, .selection-dropdown-submit {
+    padding: 10px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    transition: border-color 0.25s
+}
+
+.selection-dropdown-submit:hover {
+    border-color: #646cff;
+}

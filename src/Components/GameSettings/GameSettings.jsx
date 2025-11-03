@@ -16,12 +16,12 @@ function GameSettings() {
     <div id='form-container'>
         <form id='game-form' action="" onSubmit={handleSubmit}>
             <label htmlFor="algo-type">Select Algorithm Type:</label>
-            <select name="algo-type" id="">
+            <select name="algo-type" className="selection-dropdown">
                 <option value="miniMax">MiniMax</option>
                 <option value="alphaBetaPruning">Alpha-Beta Pruning</option>
                 <option value="expectiMiniMax">ExpectiMiniMax</option>
             </select>
-            <input type="submit" id='game-form-submit' value='Start'/>
+            <input type="submit" id='game-form-submit' value='Start' className='selection-dropdown-submit'/>
         </form>
     </div>
   )
