@@ -41,6 +41,8 @@ function GameBoard(props) {
             } else if (data.gametie) {
                 alert('Game over. It was a tie. Please click the reset button to play again.')
                 setBoardUnclickable(true);
+            } else {
+                setBoardUnclickable(false);
             }
         } catch (e) {
             console.log(`Error fetching: ${e}`);
@@ -49,12 +51,14 @@ function GameBoard(props) {
    }
 
     const handleClickOnCell = async (cellRow, cellCol) => {
+        setBoardUnclickable(true);
         console.log(`Clicked on cell ${cellRow}, ${cellCol}`)
         //console.log(arrBoard)
 
         // updating arr board
         if(arrBoard[cellRow][cellCol] != 0) { // don't update if taken
             alert("This cell is occupied. Choose another.")
+            setBoardUnclickable(false);
             return;
         }
         
