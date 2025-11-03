@@ -1,7 +1,7 @@
 import React from 'react'
 import Title from '../../Components/Title/Title'
 import GameBoard from '../../Components/GameBoard/GameBoard'
-import UserStats from '../../Components/userStats/userStats'
+import UserStats from '../../Components/TempFolder/userStats'
 import { useState } from 'react'
 
 function GamePage() {

@@ -2,7 +2,7 @@ import React from 'react'
 import Title from '../../Components/Title/Title'
 import GameSettings from '../../Components/GameSettings/GameSettings'
 import './MainSelection.css'
-import UserStats from '../../Components/userStats/userStats'
+import UserStats from '../../Components/TempFolder/userStats'
 
 function MainSelection() {
   return (
