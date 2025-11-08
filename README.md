@@ -61,8 +61,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img width="1728" height="999" alt="Screenshot 2025-11-08 at 12 09 35 AM" src="https://github.com/user-attachments/assets/837fe4f0-24fa-472d-9221-410b8a28e697" />
+<br />
 
 The aim of this project was to explore the practical applications of decision-making in competitive environments, with a focus on artificial intelligence and game theory. I decided to use Tic-Tac-Toe to demonstrate the effectiveness of the algorithms included in this game as it's easy to understand which in turn makes the process of explaining each algorithm in relation to the game much easier.
 
@@ -183,7 +183,6 @@ Project Link: [https://github.com/devangmalhotra/ai-agent-tic-tac-toe](https://g
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-61DAFB?style=plastic&logo=react&logoColor=black
