@@ -79,7 +79,7 @@ Each player has a unique UUID attached to the localStorage in their browser. The
 
 ### Built With
 
-This project was built with the PERN stack and gave me the opportunity to become familiar with PostgreSQL. Having always used MySQL databases in the past, Neon was much simpler to use and set up in my Express application.
+This project was built with the PERN stack and gave me the opportunity to gain exposure to PostgreSQL. Having always used MySQL databases in the past, Neon was much simpler to use and set up in my Express application.
 
 * [![PostgreSQL][PostgreSQL.org]][PostgreSQL-url]
 * [![Express][Express.js]][Express-url]
