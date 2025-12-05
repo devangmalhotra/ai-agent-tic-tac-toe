@@ -144,7 +144,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 ### MiniMax Algorithm
-This was the first algorithm I wrote code for. 
+This was the first algorithm I wrote code for. In this particular back-tracking algorithm, one player is trying to maximize their score while the other is trying to minimize their score. Each board state has a particular value associated with it, and each turn will build a set of game trees recursively to find the lowest or highest score.
 ### Alpha-Beta Pruning Algorithm
 text
 ### ExpectiMiniMax Algorithm
