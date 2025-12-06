@@ -146,7 +146,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ### MiniMax Algorithm
 This was the first algorithm I wrote code for. In this particular back-tracking algorithm, one player is trying to maximize their score while the other is trying to minimize their score. Each board state has a particular value associated with it, and each turn will build a set of game trees recursively to find the lowest or highest score.
 ### Alpha-Beta Pruning Algorithm
-text
+This algorithm is an optimization of the MiniMax algorithm and works by reducing the total number of nodes evaluated, eliminating the branches that cannot have an influence on the final decision. This is done by keeping track of two values, alpha and beta. The process begins by setting alpha to negative infinity, which represents the highest value that the maximizing player can achieve. On the other hand, beta is set to positive infinity, and represents the lowest value that the minimizing player can achieve. When each state is evaluated, the children of all max and min nodes are evaluated using the MiniMax algorithm. For max nodes, alpha is updated with ```Math.max(alpha, childValue)```. If alpha is greater than or equal to beta, the branch is cut off. For min nodes, beta is updated with ```Math.min(beta, childValue)```. If beta is less than or equal to alpha, the branch is cut off.
 ### ExpectiMiniMax Algorithm
 text
 
